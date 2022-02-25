@@ -33,9 +33,23 @@ export async function getStaticProps() {
     props: {
       meetups: DUMMY_MEETUPS
     },
-    revalidate: 3600 // Incremental static generation: Number of seconds nextjs will wait
+    revalidate: 1 // Incremental static generation: Number of seconds nextjs will wait
     // until regenerate this page for incoming requests.
   }; 
 }
+
+// export async function getServerSideProps(context) { // Only use if you need access to the request
+//   const req = context.req;
+//   const res = context.res;
+
+//   // fetch data from an API
+
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUPS
+//     }
+//     // regenerate the page for every request!
+//   };
+// }
 
 export default HomePage;
