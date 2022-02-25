@@ -35,7 +35,8 @@ export async function getStaticPaths() {
   client.close();
 
   return {
-    fallback: false, // 'false' if you listed all the possible paths, 'true' if you want the server creating a req for a unlisted path
+    fallback: 'blocking', // 'false' if you listed all the possible paths, 'true' and 'blocking' if you want the server 
+    // creating a req for a unlisted path. ('true' the user sees an empty page until data loads, 'blocking' the page will wait the data).
     paths: meetups.map((meetup) => ({
       params: { meetupId: meetup._id.toString() },
     })),
